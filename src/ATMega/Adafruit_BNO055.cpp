@@ -13,15 +13,18 @@
 
 
 #if ARDUINO >= 100
-#include "Arduino.h"
+//#include "Arduino.h"
 #else
-#include "WProgram.h"
+//#include "WProgram.h"
 #endif
 
 #include <math.h>
 #include <limits.h>
+#include <unistd.h>
 
 #include "Adafruit_BNO055.h"
+
+#define byte char
 
 
 /***************************************************************************
@@ -52,7 +55,7 @@ Adafruit_BNO055::Adafruit_BNO055(int32_t sensorID, uint8_t address)
 bool Adafruit_BNO055::begin(adafruit_bno055_opmode_t mode)
 {
     /* Enable I2C */
-    Wire.begin();
+    //Wire.begin();
 
     // BNO055 clock stretches for 500us or more!
     #ifdef ESP8266
@@ -63,7 +66,7 @@ bool Adafruit_BNO055::begin(adafruit_bno055_opmode_t mode)
     uint8_t id = read8(BNO055_CHIP_ID_ADDR);
     if(id != BNO055_ID)
     {
-        delay(1000); // hold on for boot
+        sleep(1000); // hold on for boot
         id = read8(BNO055_CHIP_ID_ADDR);
         if(id != BNO055_ID) {
             return false;  // still not? ok bail
@@ -77,13 +80,13 @@ bool Adafruit_BNO055::begin(adafruit_bno055_opmode_t mode)
     write8(BNO055_SYS_TRIGGER_ADDR, 0x20);
     while (read8(BNO055_CHIP_ID_ADDR) != BNO055_ID)
     {
-        delay(10);
+        sleep(10);
     }
-    delay(50);
+    sleep(50);
 
     /* Set to normal power mode */
     write8(BNO055_PWR_MODE_ADDR, POWER_MODE_NORMAL);
-    delay(10);
+    sleep(10);
 
     write8(BNO055_PAGE_ID_ADDR, 0);
 
@@ -106,10 +109,10 @@ bool Adafruit_BNO055::begin(adafruit_bno055_opmode_t mode)
     */
 
     write8(BNO055_SYS_TRIGGER_ADDR, 0x0);
-    delay(10);
+    sleep(10);
     /* Set the requested operating mode (see section 3.3) */
     setMode(mode);
-    delay(20);
+    sleep(20);
 
     return true;
 }
@@ -123,7 +126,7 @@ void Adafruit_BNO055::setMode(adafruit_bno055_opmode_t mode)
 {
     _mode = mode;
     write8(BNO055_OPR_MODE_ADDR, _mode);
-    delay(30);
+    sleep(30);
 }
 
 /**************************************************************************/
@@ -136,12 +139,12 @@ void Adafruit_BNO055::setAxisRemap( adafruit_bno055_axis_remap_config_t remapcod
     adafruit_bno055_opmode_t modeback = _mode;
 
     setMode(OPERATION_MODE_CONFIG);
-    delay(25);
+    sleep(25);
     write8(BNO055_AXIS_MAP_CONFIG_ADDR, remapcode);
-    delay(10);
+    sleep(10);
     /* Set the requested operating mode (see section 3.3) */
     setMode(modeback);
-    delay(20);
+    sleep(20);
 }
 
 /**************************************************************************/
@@ -154,12 +157,12 @@ void Adafruit_BNO055::setAxisSign( adafruit_bno055_axis_remap_sign_t remapsign )
     adafruit_bno055_opmode_t modeback = _mode;
 
     setMode(OPERATION_MODE_CONFIG);
-    delay(25);
+    sleep(25);
     write8(BNO055_AXIS_MAP_SIGN_ADDR, remapsign);
-    delay(10);
+    sleep(10);
     /* Set the requested operating mode (see section 3.3) */
     setMode(modeback);
-    delay(20);
+    sleep(20);
 }
 
 
@@ -168,23 +171,23 @@ void Adafruit_BNO055::setAxisSign( adafruit_bno055_axis_remap_sign_t remapsign )
     @brief  Use the external 32.768KHz crystal
 */
 /**************************************************************************/
-void Adafruit_BNO055::setExtCrystalUse(boolean usextal)
+void Adafruit_BNO055::setExtCrystalUse(bool usextal)
 {
     adafruit_bno055_opmode_t modeback = _mode;
 
     /* Switch to config mode (just in case since this is the default) */
     setMode(OPERATION_MODE_CONFIG);
-    delay(25);
+    sleep(25);
     write8(BNO055_PAGE_ID_ADDR, 0);
     if (usextal) {
         write8(BNO055_SYS_TRIGGER_ADDR, 0x80);
     } else {
         write8(BNO055_SYS_TRIGGER_ADDR, 0x00);
     }
-    delay(10);
+    sleep(10);
     /* Set the requested operating mode (see section 3.3) */
     setMode(modeback);
-    delay(20);
+    sleep(20);
 }
 
 
@@ -239,7 +242,7 @@ void Adafruit_BNO055::getSystemStatus(uint8_t *system_status, uint8_t *self_test
     if (system_error != 0)
         *system_error     = read8(BNO055_SYS_ERR_ADDR);
 
-    delay(200);
+    sleep(200);
 }
 
 /**************************************************************************/
@@ -319,7 +322,7 @@ imu::Vector<3> Adafruit_BNO055::getVector(adafruit_vector_type_t vector_type)
     x = y = z = 0;
 
     /* Read vector data (6 bytes) */
-    readLen((adafruit_bno055_reg_t)vector_type, buffer, 6);
+    readLen((adafruit_bno055_reg_t)vector_type, (char*) buffer, 6);
 
     x = ((int16_t)buffer[0]) | (((int16_t)buffer[1]) << 8);
     y = ((int16_t)buffer[2]) | (((int16_t)buffer[3]) << 8);
@@ -373,7 +376,7 @@ imu::Quaternion Adafruit_BNO055::getQuat(void)
     x = y = z = w = 0;
 
     /* Read quat data (8 bytes) */
-    readLen(BNO055_QUATERNION_DATA_W_LSB_ADDR, buffer, 8);
+    readLen(BNO055_QUATERNION_DATA_W_LSB_ADDR, (char*)buffer, 8);
     w = (((uint16_t)buffer[1]) << 8) | ((uint16_t)buffer[0]);
     x = (((uint16_t)buffer[3]) << 8) | ((uint16_t)buffer[2]);
     y = (((uint16_t)buffer[5]) << 8) | ((uint16_t)buffer[4]);
@@ -422,7 +425,7 @@ bool Adafruit_BNO055::getEvent(sensors_event_t *event)
     event->version   = sizeof(sensors_event_t);
     event->sensor_id = _sensorID;
     event->type      = SENSOR_TYPE_ORIENTATION;
-    event->timestamp = millis();
+    //event->timestamp = millis(); can fix if we need timestamp data
 
     /* Get a Euler angle sample for orientation */
     imu::Vector<3> euler = getVector(Adafruit_BNO055::VECTOR_EULER);
@@ -445,7 +448,7 @@ bool Adafruit_BNO055::getSensorOffsets(uint8_t* calibData)
         adafruit_bno055_opmode_t lastMode = _mode;
         setMode(OPERATION_MODE_CONFIG);
 
-        readLen(ACCEL_OFFSET_X_LSB_ADDR, calibData, NUM_BNO055_OFFSET_REGISTERS);
+        readLen(ACCEL_OFFSET_X_LSB_ADDR, (char*) calibData, NUM_BNO055_OFFSET_REGISTERS);
 
         setMode(lastMode);
         return true;
@@ -464,7 +467,7 @@ bool Adafruit_BNO055::getSensorOffsets(adafruit_bno055_offsets_t &offsets_type)
     {
         adafruit_bno055_opmode_t lastMode = _mode;
         setMode(OPERATION_MODE_CONFIG);
-        delay(25);
+        sleep(25);
 
         /* Accel offset range depends on the G-range:
            +/-2g  = +/- 2000 mg
@@ -513,7 +516,7 @@ void Adafruit_BNO055::setSensorOffsets(const uint8_t* calibData)
 {
     adafruit_bno055_opmode_t lastMode = _mode;
     setMode(OPERATION_MODE_CONFIG);
-    delay(25);
+    sleep(25);
 
     /* Note: Configuration will take place only when user writes to the last
        byte of each config data pair (ex. ACCEL_OFFSET_Z_MSB_ADDR, etc.).
@@ -560,7 +563,7 @@ void Adafruit_BNO055::setSensorOffsets(const adafruit_bno055_offsets_t &offsets_
 {
     adafruit_bno055_opmode_t lastMode = _mode;
     setMode(OPERATION_MODE_CONFIG);
-    delay(25);
+    sleep(25);
 
     /* Note: Configuration will take place only when user writes to the last
        byte of each config data pair (ex. ACCEL_OFFSET_Z_MSB_ADDR, etc.).
@@ -623,6 +626,7 @@ bool Adafruit_BNO055::isFullyCalibrated(void)
 /**************************************************************************/
 bool Adafruit_BNO055::write8(adafruit_bno055_reg_t reg, byte value)
 {
+    /*
     Wire.beginTransmission(_address);
     #if ARDUINO >= 100
         Wire.write((uint8_t)reg);
@@ -632,6 +636,7 @@ bool Adafruit_BNO055::write8(adafruit_bno055_reg_t reg, byte value)
         Wire.send(value);
     #endif
     Wire.endTransmission();
+     */
 
     /* ToDo: Check for error! */
     return true;
@@ -644,6 +649,7 @@ bool Adafruit_BNO055::write8(adafruit_bno055_reg_t reg, byte value)
 /**************************************************************************/
 byte Adafruit_BNO055::read8(adafruit_bno055_reg_t reg )
 {
+    /*
     byte value = 0;
 
     Wire.beginTransmission(_address);
@@ -661,6 +667,8 @@ byte Adafruit_BNO055::read8(adafruit_bno055_reg_t reg )
     #endif
 
     return value;
+     */
+    return 0;
 }
 
 /**************************************************************************/
@@ -670,6 +678,7 @@ byte Adafruit_BNO055::read8(adafruit_bno055_reg_t reg )
 /**************************************************************************/
 bool Adafruit_BNO055::readLen(adafruit_bno055_reg_t reg, byte * buffer, uint8_t len)
 {
+    /*
     Wire.beginTransmission(_address);
     #if ARDUINO >= 100
         Wire.write((uint8_t)reg);
@@ -687,6 +696,7 @@ bool Adafruit_BNO055::readLen(adafruit_bno055_reg_t reg, byte * buffer, uint8_t 
             buffer[i] = Wire.receive();
     #endif
     }
+     */
 
     /* ToDo: Check for errors! */
     return true;

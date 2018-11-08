@@ -1,5 +1,0 @@
-/usr/lib/avr/include
-../lib/freertos
-../lib/frtcpp
-../lib/misc
-../lib/serial
