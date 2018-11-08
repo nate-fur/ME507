@@ -1,0 +1,63 @@
+raspberry pi
+
+control_loop (interrupts)
+
+receiver_task
+    state 1: receive data based
+
+lidar_task
+
+pi_mega_comm_task
+    receive mega info (mega_to_pi struct)
+        set state variables to whatever was received for consistency between systems
+    send mega info (pi_to_mega struct)
+
+
+
+
+
+atmega
+
+pi_mega_comm_task
+    receive pi info (pi_to_mega struct)
+        set state variables to whatever was received for consistency between systems
+    send pi info (mega_to_pi struct)
+
+imu_task
+    state 1: reading heading and saving it to imu_angle in the structure
+
+gearshift_task
+
+fifth_wheel_task
+
+steering_task
+
+wheelspeed_task
+
+motor_task
+
+
+
+
+communication classes (or just structures?)
+
+controller receiver information (could do some processing here in case there aren't enough controller buttons)
+    velocity setpoint
+    angle setpoint - probably going to need to experiment with the best control for this
+    5th wheel actuation
+    shift gears - only under certain conditions?
+
+pi_to_mega
+    steering servo level - should go straight to the servo without any processing
+    motor level - should go straight to the motor without any processing
+    gearshift level - either need to error check here or back in the pi
+    5th wheel servo - could be implemented simply as a toggle between states that is reset appropriately
+
+
+mega_to_pi
+    wheelspeed velocity - hopefully can be processed into a speed here...
+    imu angle
+    gear level info
+    (5th wheel level if not doing toggle implementation)
+
+
