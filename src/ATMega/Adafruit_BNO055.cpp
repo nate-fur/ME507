@@ -21,8 +21,10 @@
 #include <math.h>
 #include <limits.h>
 #include <unistd.h>
+#include <cstdio>
 
 #include "Adafruit_BNO055.h"
+#include "i2c_master.h"
 
 #define byte char
 
@@ -38,7 +40,9 @@
 /**************************************************************************/
 Adafruit_BNO055::Adafruit_BNO055(int32_t sensorID, uint8_t address)
 {
+    printf("Setting sensor ID to %i\n", sensorID);
     _sensorID = sensorID;
+    printf("Setting address ID to %i\n\n", address);
     _address = address;
 }
 
@@ -667,7 +671,7 @@ byte Adafruit_BNO055::read8(adafruit_bno055_reg_t reg )
     #endif
 
     return value;
-     */
+    */
     return 0;
 }
 

@@ -8,10 +8,11 @@ using namespace std;
 
 
 int main() {
-    Adafruit_BNO055 imu = new Adafruit_BNO055();
+    auto *imu = new Adafruit_BNO055(123, 456);
 
+    printf("in main sensorID is %i\n", imu->_sensorID);
 
-
+    printf("in main: address ID is %i\n", imu->_address);
 
     cout << "Hello world" << endl;
 
