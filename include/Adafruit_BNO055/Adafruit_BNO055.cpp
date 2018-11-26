@@ -9,14 +9,14 @@
   from Adafruit!
   Written by KTOWN for Adafruit Industries.
   MIT license, all text above must be included in any redistribution
+
+  Revised:
+     nate furbeyre 11/19/18 -
+
  ***************************************************************************/
 
 
-#if ARDUINO >= 100
-//#include "Arduino.h"
-#else
-//#include "WProgram.h"
-#endif
+#include "avr/Arduino.h"
 
 #include <math.h>
 #include <limits.h>

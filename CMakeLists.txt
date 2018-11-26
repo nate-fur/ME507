@@ -12,7 +12,7 @@ include_directories(
         ../untitled/avr/libraries/Wire
         ridgley_code)
 
-set(SOURCE_FILES src/main.cpp)
+set(SOURCE_FILES src/main_mega.cpp)
 
-add_executable(main src/main.cpp src/ATMega/Adafruit_BNO055.cpp)
+add_executable(main src/main_mega.cpp include/Adafruit_BNO055/Adafruit_BNO055.cpp)
 

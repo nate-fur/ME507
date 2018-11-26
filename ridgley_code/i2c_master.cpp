@@ -35,7 +35,7 @@
  *    OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
 //*************************************************************************************
 
-#include "ridgely_inc/FreeRTOS.h"                       // Main header for FreeRTOS
+#include "FreeRTOS.h"                       // Main header for FreeRTOS
 #include "task.h"                           // Needed for the vTaskDelay() function
 #include "i2c_master.h"                     // Header for this class
 
