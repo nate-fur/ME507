@@ -34,6 +34,7 @@ public:
      * @param p_ser_dev A serial device that this tasks output is sent to
      * @param baud The baud rate for the UART port that the mega communicates with
      * @param port The UART port number
+     * @param semi_data_in A pointer to the semi truck system data communicated between tasks
      */
     mega_comm_task(const char* a_name,
     			unsigned portBASE_TYPE a_priority = 0,

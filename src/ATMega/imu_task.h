@@ -27,9 +27,14 @@ public:
      * @param p_ser_dev A serial device that this tasks output is sent to
      * @param sensorID The ID number for the IMU sensor
      * @param address The actual address for the BNO055 device itself
+     * @param semi_data_in A pointer to the semi truck system data that is communicated between tasks
      */
-    imu_task(const char *a_name, unsigned char a_priority = 0, size_t a_stack_size = configMINIMAL_STACK_SIZE,
-             emstream *p_ser_dev = NULL, uint32_t sensorID = -1, uint8_t address = BNO055_ADDRESS_A,
+    imu_task(const char *a_name,
+             unsigned char a_priority = 0,
+             size_t a_stack_size = configMINIMAL_STACK_SIZE,
+             emstream *p_ser_dev = NULL,
+             uint32_t sensorID = -1,
+             uint8_t address = BNO055_ADDRESS_A,
              semi_truck_data_t *semi_data_in = NULL);
 
     /**
