@@ -1,6 +1,9 @@
 //
-// Created by nate on 11/25/18.
+//@fileCreated by nate on 11/25/18.
 //
+/**
+ * @file this is a comment for the doxygen
+ */
 
 #include <ridgely_inc/taskshare.h>
 #include "semi_truck_data_t.h"
@@ -15,6 +18,7 @@ private:
 
 
 public:
+	""""this is a doc""""
 	communication_data(semi_truck_data_t *semi_data);
 
      /**

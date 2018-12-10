@@ -29,7 +29,7 @@ void mega_comm_task::run()
 void mega_comm_task::read_from_pi()
 {
 	portENTER_CRITICAL ();
-	if (check_for_char()) { /// if the other device writes all data atomically, then we can read all data
+	if (check_for_char()) { /// if the other device writes all data atomically, then we can read all data (also atomically)
 		data_for_tasks->set_motor_output(read_16bit_val()); // motor output is going to be a 16 bit value
 		data_for_tasks->set_steer_output(read_16bit_val());
 		data_for_tasks->set_desired_gear(getchar()); // desired gear is only an 8 bit value

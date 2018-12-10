@@ -12,7 +12,6 @@ imu_task::imu_task(const char *a_name, unsigned char a_priority, size_t a_stack_
 {
     semi_data = semi_data_in;
     state = 0;
-	/// NEED TO DO SOME CALIBRATION AND SETUP FOR THE BNO055 DEVICE
 
 }
 

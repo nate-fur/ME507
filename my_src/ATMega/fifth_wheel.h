@@ -36,18 +36,12 @@ public:
 	 */
     void run(); // contains a finite state machine: 2 states, open and closed
 
-    /**
-     * @brief sets the value of toggle for the fifth_wheel
-     * This method is primarily called by the mastermind task that is responsible for retrieving
-     * values from the RC controller and setting variables accordingly
-     * @param value A boolean value signifying whether or not to toggle the locked / unlocked state
-     * of the fifth wheel.
-     */
-
 private:
     semi_truck_data_t *semi_data;
 
-    // overwriting parent state variable; we only have 2 states: true (locked) and false (unlocked)
+    /**
+     * @brief overwriting parent state variable; we only have 2 states: true (locked) and false (unlocked)
+     */
     bool state;
 
     /**

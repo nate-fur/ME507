@@ -38,7 +38,7 @@ public:
              semi_truck_data_t *semi_data_in = NULL);
 
     /**
-     * Runs the infinite loop task code for reading IMU data. This task has only one state; reading
+     * Runs the infinite loop task code for reading IMU data. This task has only one effective state; reading
      * angle data of the semi truck to be input into the control loop for a steering servo output.
      */
     void run();

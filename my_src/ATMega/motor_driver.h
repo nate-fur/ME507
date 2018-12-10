@@ -34,8 +34,9 @@ public:
 
 	/**
 	 * @brief Runs the task code for the motor driver.
-	 * This task has a single state: reading output level that comes from the control
-	 * loop running on the Raspberry pi, and actuating the motor to this level.
+	 * This task has a two different states: (1) reading output level that comes from the control
+	 * loop running on the Raspberry pi, and actuating the motor to this level, and (2) an off state
+	 * where the motor will not output any torque
 	 */
     void run();
 };

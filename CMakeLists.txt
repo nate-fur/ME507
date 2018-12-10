@@ -6,13 +6,13 @@ set(MCU __AVR_ATmega64__)
 
 include_directories(
         include
-        include/ridgely_inc
+        include/ridgely_code
         include/Adafruit_BNO055
         ../untitled/avr/cores
         ../untitled/avr/libraries/Wire
         ridgley_code)
 
-set(SOURCE_FILES src/main_mega.cpp)
+set(SOURCE_FILES my_src/main_mega.cpp)
 
-add_executable(main src/main_mega.cpp include/Adafruit_BNO055/Adafruit_BNO055.cpp)
+add_executable(main my_src/main_mega.cpp include/Adafruit_BNO055/Adafruit_BNO055.cpp)
 

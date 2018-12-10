@@ -34,16 +34,13 @@ public:
 
 	/**
 	 * @brief Runs the task code for the steering servo.
-	 * This method simulates finite state machine with 2 different states: on (1) and off (2).
-	 * In its off state, the servo will not try to actuate to any specific steering angle, it
-	 * will simply remain where it is when it was turned off. In its on state, the servo will
+	 * This method simulates finite state machine with a single state: on. In this state, the servo will
 	 * actuate (based on PWM level) to hit the setpoint steering angle from the Raspberry Pi's
 	 * control loop task.
 	 */
     void run(); // contains a finite state machine: 2 states, open and closed
 
-    void set_steering_level(int16_t level);
-    int16_t get_steering_level();
+
 };
 
 

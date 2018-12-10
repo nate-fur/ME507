@@ -1761,12 +1761,12 @@ extern int memcmp_PF(const void *, uint_farptr_t, size_t) __ATTR_PURE__;
 
 #ifdef __DOXYGEN__
 /** \ingroup avr_pgmspace
-    \fn size_t strlen_P(const char *src)
+    \fn size_t strlen_P(const char *my_src)
 
-    The strlen_P() function is similar to strlen(), except that src is a
+    The strlen_P() function is similar to strlen(), except that my_src is a
     pointer to a string in program space.
 
-    \returns The strlen_P() function returns the number of characters in src.
+    \returns The strlen_P() function returns the number of characters in my_src.
 
     \note strlen_P() is implemented as an inline function in the avr/pgmspace.h
     header file, which will check if the length of the string is a constant
