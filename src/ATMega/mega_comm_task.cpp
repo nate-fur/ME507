@@ -4,8 +4,6 @@
 
 #include "mega_comm_task.h"
 
-#define PI_USART_PORT 0
-
 
 mega_comm_task::mega_comm_task(const char* a_name, unsigned portBASE_TYPE a_priority,
 		size_t a_stack_size, emstream* p_ser_dev, uint16_t baud, uint8_t port,
@@ -20,9 +18,9 @@ void mega_comm_task::run()
 {
 	/// receive data from pi and relay to tasks
 	read_from_pi();
-
 	/// send data about tasks to the pi
 	write_to_pi();
+	delay_ms(10);
 
 }
 

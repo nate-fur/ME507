@@ -14,5 +14,5 @@ wheel_speed::wheel_speed(const char *a_name, unsigned char a_priority, size_t a_
 
 void wheel_speed::run()
 {
-
+	//todo: need to implement the data filtering from the IR sensor and write to semi truck data
 }

@@ -45,6 +45,7 @@ void fifth_wheel::run()
             print_status(*p_serial);
             break;
         }
+        delay_ms(25);
 
     }
 }

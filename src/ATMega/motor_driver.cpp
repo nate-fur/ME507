@@ -14,5 +14,5 @@ motor_driver::motor_driver(const char *a_name, unsigned char a_priority, size_t 
 
 void motor_driver::run()
 {
-
+    //todo: implement the run function for the motor driver by outputting a PWM to correct pin
 }

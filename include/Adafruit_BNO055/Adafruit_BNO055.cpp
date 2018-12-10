@@ -16,10 +16,8 @@
  ***************************************************************************/
 
 
-#include "avr/Arduino.h"
 
 #include <math.h>
-#include <limits.h>
 #include <unistd.h>
 #include <cstdio>
 
