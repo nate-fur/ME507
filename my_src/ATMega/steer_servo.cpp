@@ -22,3 +22,14 @@ void steer_servo::run()
 	}
 }
 
+void steer_servo::set_steering_level(int16_t level)
+{
+	semi_data->steer_output= level;
+    delay_ms(25);
+}
+
+int16_t steer_servo::get_steering_level()
+{
+	return semi_data->steer_output;
+}
+

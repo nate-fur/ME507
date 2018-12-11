@@ -24,7 +24,7 @@ struct semi_truck_data_t {
 	int16_t speed_setpoint;  // desired speed of the semi-truck as a setpoint to the controller
     int16_t steer_output;    // output sent to the steering servo
     int16_t wheel_speed;     // speed that the wheel speed sensor is recording
-    int16_t imu_angle;       // euler angle read by the BNO055 IMU (degrees)
+    uint16_t imu_angle;       // euler angle read by the BNO055 IMU (degrees)
 	int8_t  desired_gear;    // desired gear level (set by the remote control device)
 	int8_t  actual_gear;     // actual gear that the transmission is in
     bool    desired_5th;     // desired state of the 5th wheel (locked or unlocked)

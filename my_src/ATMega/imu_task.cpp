@@ -36,6 +36,7 @@ void imu_task::run()
             print_status(*p_serial);
             break;
 		}
+		delay_ms(10);
 
 	}
 
