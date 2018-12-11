@@ -32,7 +32,7 @@
 #ifndef _BASE232_H_
 #define _BASE232_H_
 
-// #include "emstream.h"				// Pull in the base class header file
+// #borrowed_code "emstream.h"				// Pull in the base class header file
 
 // Check that the user has set the CPU frequency in the Makefile; if not, complain
 #if defined (__AVR) && !defined (F_CPU)

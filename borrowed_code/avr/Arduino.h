@@ -1,5 +1,5 @@
 /*
-  Arduino.h - Main include file for the Arduino SDK
+  Arduino.h - Main borrowed_code file for the Arduino SDK
   Copyright (c) 2005-2013 Arduino Team.  All right reserved.
 
   This library is free software; you can redistribute it and/or

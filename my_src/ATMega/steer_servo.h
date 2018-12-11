@@ -9,7 +9,7 @@
 #ifndef ME507_STEER_SERVO_H
 #define ME507_STEER_SERVO_H
 
-#include "Servo.h"
+#include "avr/Servo.h"
 #include "taskbase.h"
 #include "../semi_truck_data_t.h"
 

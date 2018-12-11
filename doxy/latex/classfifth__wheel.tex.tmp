@@ -1,0 +1,62 @@
+\hypertarget{classfifth__wheel}{}\section{fifth\+\_\+wheel Class Reference}
+\label{classfifth__wheel}\index{fifth\+\_\+wheel@{fifth\+\_\+wheel}}
+
+
+{\ttfamily \#include $<$fifth\+\_\+wheel.\+h$>$}
+
+
+
+Inheritance diagram for fifth\+\_\+wheel\+:
+% FIG 0
+
+
+Collaboration diagram for fifth\+\_\+wheel\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classfifth__wheel_aafa9ebc8c52769cf2c27d1c8482c0a1a}{fifth\+\_\+wheel} (const char $\ast$a\+\_\+name, unsigned char a\+\_\+priority=0, size\+\_\+t a\+\_\+stack\+\_\+size=config\+M\+I\+N\+I\+M\+A\+L\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE, emstream $\ast$p\+\_\+ser\+\_\+dev=N\+U\+LL, \hyperlink{structsemi__truck__data__t}{semi\+\_\+truck\+\_\+data\+\_\+t} $\ast$semi\+\_\+data\+\_\+in=N\+U\+LL)
+\begin{DoxyCompactList}\small\item\em The constructor for a \hyperlink{classfifth__wheel}{fifth\+\_\+wheel}, which locks and unlocks the trailer hitch. \end{DoxyCompactList}\item 
+void \hyperlink{classfifth__wheel_ac541662524ee7a198460e4f2145232e2}{run} ()\hypertarget{classfifth__wheel_ac541662524ee7a198460e4f2145232e2}{}\label{classfifth__wheel_ac541662524ee7a198460e4f2145232e2}
+
+\begin{DoxyCompactList}\small\item\em Runs the task code for the fifth wheel. This method simulates finite state machine with 2 different states\+: locked (1) and unlocked (2). In its unlocked state, the servo is configured so that the trailer can be attached or detached from the tractor. In its unlocked state, the servo locks the fifth wheel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Created by nate furbeyre on 11/18/18. The fifth wheel is responsible for locking and unlocking the connection between the semi-\/truck tractor and trailer. It is implemented as a child class of both a \hyperlink{classServo}{Servo}, and as a Task\+Base, allowing it to inherit properties and methods from each parent class. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{fifth\+\_\+wheel@{fifth\+\_\+wheel}!fifth\+\_\+wheel@{fifth\+\_\+wheel}}
+\index{fifth\+\_\+wheel@{fifth\+\_\+wheel}!fifth\+\_\+wheel@{fifth\+\_\+wheel}}
+\subsubsection[{\texorpdfstring{fifth\+\_\+wheel(const char $\ast$a\+\_\+name, unsigned char a\+\_\+priority=0, size\+\_\+t a\+\_\+stack\+\_\+size=config\+M\+I\+N\+I\+M\+A\+L\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+Z\+E, emstream $\ast$p\+\_\+ser\+\_\+dev=\+N\+U\+L\+L, semi\+\_\+truck\+\_\+data\+\_\+t $\ast$semi\+\_\+data\+\_\+in=\+N\+U\+L\+L)}{fifth_wheel(const char *a_name, unsigned char a_priority=0, size_t a_stack_size=configMINIMAL_STACK_SIZE, emstream *p_ser_dev=NULL, semi_truck_data_t *semi_data_in=NULL)}}]{\setlength{\rightskip}{0pt plus 5cm}fifth\+\_\+wheel\+::fifth\+\_\+wheel (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{a\+\_\+name, }
+\item[{unsigned char}]{a\+\_\+priority = {\ttfamily 0}, }
+\item[{size\+\_\+t}]{a\+\_\+stack\+\_\+size = {\ttfamily configMINIMAL\+\_\+STACK\+\_\+SIZE}, }
+\item[{emstream $\ast$}]{p\+\_\+ser\+\_\+dev = {\ttfamily NULL}, }
+\item[{{\bf semi\+\_\+truck\+\_\+data\+\_\+t} $\ast$}]{semi\+\_\+data\+\_\+in = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)}\hypertarget{classfifth__wheel_aafa9ebc8c52769cf2c27d1c8482c0a1a}{}\label{classfifth__wheel_aafa9ebc8c52769cf2c27d1c8482c0a1a}
+
+
+The constructor for a \hyperlink{classfifth__wheel}{fifth\+\_\+wheel}, which locks and unlocks the trailer hitch. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+name} & the name of the task \\
+\hline
+{\em a\+\_\+priority} & The priority given to this task \\
+\hline
+{\em a\+\_\+stack\+\_\+size} & The amount of bytes given to the task \\
+\hline
+{\em p\+\_\+ser\+\_\+dev} & A serial device that this tasks output is sent to \\
+\hline
+{\em semi\+\_\+data\+\_\+in} & A pointer to the semi truck system data that is communicated between tasks \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+fifth\+\_\+wheel.\+h\item 
+fifth\+\_\+wheel.\+cpp\end{DoxyCompactItemize}

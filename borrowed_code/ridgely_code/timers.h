@@ -68,7 +68,7 @@
 #define TIMERS_H
 
 #ifndef INC_FREERTOS_H
-	#error "include FreeRTOS.h must appear in source files before include timers.h"
+	#error "borrowed_code FreeRTOS.h must appear in source files before borrowed_code timers.h"
 #endif
 
 /*lint -e537 This headers are only multiply included if the application code

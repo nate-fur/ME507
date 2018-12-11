@@ -68,7 +68,7 @@
 #define INC_TASK_H
 
 #ifndef INC_FREERTOS_H
-	#error "include FreeRTOS.h must appear in source files before include task.h"
+	#error "borrowed_code FreeRTOS.h must appear in source files before borrowed_code task.h"
 #endif
 
 #include "list.h"
@@ -1108,7 +1108,7 @@ char *pcTaskGetTaskName( TaskHandle_t xTaskToQuery ) PRIVILEGED_FUNCTION; /*lint
  */
 UBaseType_t uxTaskGetStackHighWaterMark( TaskHandle_t xTask ) PRIVILEGED_FUNCTION;
 
-/* When using trace macros it is sometimes necessary to include task.h before
+/* When using trace macros it is sometimes necessary to borrowed_code task.h before
 FreeRTOS.h.  When this is done TaskHookFunction_t will not yet have been defined,
 so the following two prototypes will cause a compilation error.  This can be
 fixed by simply guarding against the inclusion of these two prototypes unless

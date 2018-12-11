@@ -1,7 +1,7 @@
 //*************************************************************************************
 //
 // This version of FreeRTOSConfig.h is set up for Cal Poly ME405 projects using an AVR
-// microcontroller. Specific course oriented modifications include 
+// microcontroller. Specific course oriented modifications borrowed_code
 //
 //*************************************************************************************
 
@@ -214,7 +214,7 @@
  */
 #define configMAX_CO_ROUTINE_PRIORITIES ( 2 )
 
-/* Set each of the following definitions to 1 to include the corresponding API 
+/* Set each of the following definitions to 1 to borrowed_code the corresponding API
  * function, or to zero to exclude the API function. 
  */
 

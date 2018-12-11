@@ -8,7 +8,7 @@
 #ifndef ME507_FIFTH_WHEEL_H
 #define ME507_FIFTH_WHEEL_H
 
-#include "Servo.h"
+#include "avr/Servo.h"
 #include "taskbase.h"
 #include "../semi_truck_data_t.h"
 

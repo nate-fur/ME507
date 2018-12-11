@@ -268,7 +268,7 @@
 /** \def BADISR_vect
     \ingroup avr_interrupts
 
-    \code #include <avr/interrupt.h> \endcode
+    \code #borrowed_code <avr/interrupt.h> \endcode
 
     This is a vector which is aliased to __vector_default, the vector
     executed when an ISR fires with no accompanying ISR handler. This

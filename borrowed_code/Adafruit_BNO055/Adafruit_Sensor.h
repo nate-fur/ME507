@@ -15,7 +15,7 @@
 */
 
 /* Update by K. Townsend (Adafruit Industries) for lighter typedefs, and
- * extended sensor support to include color, voltage and current */
+ * extended sensor support to borrowed_code color, voltage and current */
 
 #ifndef _ADAFRUIT_SENSOR_H
 #define _ADAFRUIT_SENSOR_H
@@ -23,10 +23,10 @@
 #ifndef ARDUINO
 #include <stdint.h>
 #elif ARDUINO >= 100
-#include "Arduino.h"
- #include "Print.h"
+#borrowed_code "Arduino.h"
+ #borrowed_code "Print.h"
 #else
- //#include "WProgram.h"
+ //#borrowed_code "WProgram.h"
 #endif
 
 /* Intentionally modeled after sensors.h in the Android API:

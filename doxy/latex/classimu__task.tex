@@ -1,0 +1,70 @@
+\hypertarget{classimu__task}{}\section{imu\+\_\+task Class Reference}
+\label{classimu__task}\index{imu\+\_\+task@{imu\+\_\+task}}
+
+
+Inheritance diagram for imu\+\_\+task\+:
+% FIG 0
+
+
+Collaboration diagram for imu\+\_\+task\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classimu__task_ad78399d5e32f9cc5603c1153d0f37143}{imu\+\_\+task} (const char $\ast$a\+\_\+name, unsigned char a\+\_\+priority=0, size\+\_\+t a\+\_\+stack\+\_\+size=config\+M\+I\+N\+I\+M\+A\+L\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE, emstream $\ast$p\+\_\+ser\+\_\+dev=N\+U\+LL, uint32\+\_\+t sensor\+ID=-\/1, uint8\+\_\+t address=B\+N\+O055\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+A, \hyperlink{structsemi__truck__data__t}{semi\+\_\+truck\+\_\+data\+\_\+t} $\ast$semi\+\_\+data\+\_\+in=N\+U\+LL)
+\begin{DoxyCompactList}\small\item\em The constructor for a \hyperlink{classmega__comm__task}{mega\+\_\+comm\+\_\+task} object communicates with the Rasp-\/\+Pi. \end{DoxyCompactList}\item 
+void \hyperlink{classimu__task_a482728903a7fda5facb8dcdc5f6b9f46}{run} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{imu\+\_\+task@{imu\+\_\+task}!imu\+\_\+task@{imu\+\_\+task}}
+\index{imu\+\_\+task@{imu\+\_\+task}!imu\+\_\+task@{imu\+\_\+task}}
+\subsubsection[{\texorpdfstring{imu\+\_\+task(const char $\ast$a\+\_\+name, unsigned char a\+\_\+priority=0, size\+\_\+t a\+\_\+stack\+\_\+size=config\+M\+I\+N\+I\+M\+A\+L\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+Z\+E, emstream $\ast$p\+\_\+ser\+\_\+dev=\+N\+U\+L\+L, uint32\+\_\+t sensor\+I\+D=-\/1, uint8\+\_\+t address=\+B\+N\+O055\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+A, semi\+\_\+truck\+\_\+data\+\_\+t $\ast$semi\+\_\+data\+\_\+in=\+N\+U\+L\+L)}{imu_task(const char *a_name, unsigned char a_priority=0, size_t a_stack_size=configMINIMAL_STACK_SIZE, emstream *p_ser_dev=NULL, uint32_t sensorID=-1, uint8_t address=BNO055_ADDRESS_A, semi_truck_data_t *semi_data_in=NULL)}}]{\setlength{\rightskip}{0pt plus 5cm}imu\+\_\+task\+::imu\+\_\+task (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{a\+\_\+name, }
+\item[{unsigned char}]{a\+\_\+priority = {\ttfamily 0}, }
+\item[{size\+\_\+t}]{a\+\_\+stack\+\_\+size = {\ttfamily configMINIMAL\+\_\+STACK\+\_\+SIZE}, }
+\item[{emstream $\ast$}]{p\+\_\+ser\+\_\+dev = {\ttfamily NULL}, }
+\item[{uint32\+\_\+t}]{sensor\+ID = {\ttfamily -\/1}, }
+\item[{uint8\+\_\+t}]{address = {\ttfamily BNO055\+\_\+ADDRESS\+\_\+A}, }
+\item[{{\bf semi\+\_\+truck\+\_\+data\+\_\+t} $\ast$}]{semi\+\_\+data\+\_\+in = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)}\hypertarget{classimu__task_ad78399d5e32f9cc5603c1153d0f37143}{}\label{classimu__task_ad78399d5e32f9cc5603c1153d0f37143}
+
+
+The constructor for a \hyperlink{classmega__comm__task}{mega\+\_\+comm\+\_\+task} object communicates with the Rasp-\/\+Pi. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+name} & the name of the task \\
+\hline
+{\em a\+\_\+priority} & The priority given to this task \\
+\hline
+{\em a\+\_\+stack\+\_\+size} & The amount of bytes given to the task \\
+\hline
+{\em p\+\_\+ser\+\_\+dev} & A serial device that this tasks output is sent to \\
+\hline
+{\em sensor\+ID} & The ID number for the I\+MU sensor \\
+\hline
+{\em address} & The actual address for the B\+N\+O055 device itself \\
+\hline
+{\em semi\+\_\+data\+\_\+in} & A pointer to the semi truck system data that is communicated between tasks \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{imu\+\_\+task@{imu\+\_\+task}!run@{run}}
+\index{run@{run}!imu\+\_\+task@{imu\+\_\+task}}
+\subsubsection[{\texorpdfstring{run()}{run()}}]{\setlength{\rightskip}{0pt plus 5cm}void imu\+\_\+task\+::run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classimu__task_a482728903a7fda5facb8dcdc5f6b9f46}{}\label{classimu__task_a482728903a7fda5facb8dcdc5f6b9f46}
+Runs the infinite loop task code for reading I\+MU data. This task has only one effective state; reading angle data of the semi truck to be input into the control loop for a steering servo output. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+imu\+\_\+task.\+h\item 
+imu\+\_\+task.\+cpp\end{DoxyCompactItemize}

@@ -37,7 +37,7 @@
 
 /* This file must be explicitly included by <avr/io.h>. */
 #if !defined(_AVR_IO_H_)
-#error "You must #include <avr/io.h> and not <avr/fuse.h> by itself."
+#error "You must #borrowed_code <avr/io.h> and not <avr/fuse.h> by itself."
 #endif
 
 

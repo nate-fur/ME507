@@ -1,0 +1,64 @@
+\hypertarget{classwheel__speed}{}\section{wheel\+\_\+speed Class Reference}
+\label{classwheel__speed}\index{wheel\+\_\+speed@{wheel\+\_\+speed}}
+
+
+{\ttfamily \#include $<$wheel\+\_\+speed.\+h$>$}
+
+
+
+Inheritance diagram for wheel\+\_\+speed\+:
+% FIG 0
+
+
+Collaboration diagram for wheel\+\_\+speed\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classwheel__speed_ae6db94280adf28fc03e22260589f459a}{wheel\+\_\+speed} (const char $\ast$a\+\_\+name, unsigned char a\+\_\+priority=0, size\+\_\+t a\+\_\+stack\+\_\+size=config\+M\+I\+N\+I\+M\+A\+L\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE, emstream $\ast$p\+\_\+ser\+\_\+dev=N\+U\+LL, \hyperlink{structsemi__truck__data__t}{semi\+\_\+truck\+\_\+data\+\_\+t} $\ast$semi\+\_\+data\+\_\+in=N\+U\+LL)
+\begin{DoxyCompactList}\small\item\em The constructor for the wheel speed sensor to track speed of the semi-\/truck. \end{DoxyCompactList}\item 
+void \hyperlink{classwheel__speed_a2f83d6307577461a406c90817b16bced}{run} ()\hypertarget{classwheel__speed_a2f83d6307577461a406c90817b16bced}{}\label{classwheel__speed_a2f83d6307577461a406c90817b16bced}
+
+\begin{DoxyCompactList}\small\item\em Runs the task code for the wheel speed sensor. This task has a single state\+: reading the wheel speed sensors to determine how fast the truck is going. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Created by nate furbeyre on 11/19/18. The \hyperlink{classwheel__speed}{wheel\+\_\+speed} class holds the software behind the Q\+R\+E1113 Analog IR Sensor that is used to track wheel speed of the semi-\/truck. On the inner rim of each of the front wheels, there is a strip of alternating black and white tape. The sensor can read which color tape is measured based on the analog signal, and the data can be processed into a speed of the truck.
+
+Some code of this class is based off of \href{http://bildr.org/2011/06/qre1113-arduino/}{\tt http\+://bildr.\+org/2011/06/qre1113-\/arduino/} 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{wheel\+\_\+speed@{wheel\+\_\+speed}!wheel\+\_\+speed@{wheel\+\_\+speed}}
+\index{wheel\+\_\+speed@{wheel\+\_\+speed}!wheel\+\_\+speed@{wheel\+\_\+speed}}
+\subsubsection[{\texorpdfstring{wheel\+\_\+speed(const char $\ast$a\+\_\+name, unsigned char a\+\_\+priority=0, size\+\_\+t a\+\_\+stack\+\_\+size=config\+M\+I\+N\+I\+M\+A\+L\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+Z\+E, emstream $\ast$p\+\_\+ser\+\_\+dev=\+N\+U\+L\+L, semi\+\_\+truck\+\_\+data\+\_\+t $\ast$semi\+\_\+data\+\_\+in=\+N\+U\+L\+L)}{wheel_speed(const char *a_name, unsigned char a_priority=0, size_t a_stack_size=configMINIMAL_STACK_SIZE, emstream *p_ser_dev=NULL, semi_truck_data_t *semi_data_in=NULL)}}]{\setlength{\rightskip}{0pt plus 5cm}wheel\+\_\+speed\+::wheel\+\_\+speed (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{a\+\_\+name, }
+\item[{unsigned char}]{a\+\_\+priority = {\ttfamily 0}, }
+\item[{size\+\_\+t}]{a\+\_\+stack\+\_\+size = {\ttfamily configMINIMAL\+\_\+STACK\+\_\+SIZE}, }
+\item[{emstream $\ast$}]{p\+\_\+ser\+\_\+dev = {\ttfamily NULL}, }
+\item[{{\bf semi\+\_\+truck\+\_\+data\+\_\+t} $\ast$}]{semi\+\_\+data\+\_\+in = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)}\hypertarget{classwheel__speed_ae6db94280adf28fc03e22260589f459a}{}\label{classwheel__speed_ae6db94280adf28fc03e22260589f459a}
+
+
+The constructor for the wheel speed sensor to track speed of the semi-\/truck. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+name} & the name of the task \\
+\hline
+{\em a\+\_\+priority} & The priority given to this task \\
+\hline
+{\em a\+\_\+stack\+\_\+size} & The amount of bytes given to the task \\
+\hline
+{\em p\+\_\+ser\+\_\+dev} & A serial device that this tasks output is sent to \\
+\hline
+{\em semi\+\_\+data\+\_\+in} & A pointer to the semi truck system data that is communicated between tasks \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+wheel\+\_\+speed.\+h\item 
+wheel\+\_\+speed.\+cpp\end{DoxyCompactItemize}

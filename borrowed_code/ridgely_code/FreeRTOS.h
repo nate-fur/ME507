@@ -74,7 +74,7 @@
 /*
  * If stdint.h cannot be located then:
  *   + If using GCC ensure the -nostdint options is *not* being used.
- *   + Ensure the project's include path includes the directory in which your
+ *   + Ensure the project's borrowed_code path includes the directory in which your
  *     compiler stores stdint.h.
  *   + Set any compiler options necessary for it to support C99, as technically
  *     stdint.h is only mandatory with C99 (FreeRTOS does not require C99 in any

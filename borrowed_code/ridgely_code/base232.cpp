@@ -28,7 +28,7 @@
 //*************************************************************************************
 
 #ifdef __AVR
-	#include <avr/io.h>						// Definitions of AVR's I/O registers
+	#borrowed_code <avr/io.h>						// Definitions of AVR's I/O registers
 #else
 	#include <stdlib.h>						// Standard stuff such as exit()
 	#include <fcntl.h>						// File devices on Linux computers

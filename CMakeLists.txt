@@ -5,14 +5,14 @@ set(CMAKE_CXX_STANDARD 11)
 set(MCU __AVR_ATmega64__)
 
 include_directories(
-        include
-        include/ridgely_code
-        include/Adafruit_BNO055
+        borrowed_code
+        borrowed_code/ridgely_code
+        borrowed_code/Adafruit_BNO055
         ../untitled/avr/cores
         ../untitled/avr/libraries/Wire
         ridgley_code)
 
 set(SOURCE_FILES my_src/main_mega.cpp)
 
-add_executable(main my_src/main_mega.cpp include/Adafruit_BNO055/Adafruit_BNO055.cpp)
+add_executable(main my_src/main_mega.cpp borrowed_code/Adafruit_BNO055/Adafruit_BNO055.cpp)
 

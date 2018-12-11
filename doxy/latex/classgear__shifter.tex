@@ -1,0 +1,108 @@
+\hypertarget{classgear__shifter}{}\section{gear\+\_\+shifter Class Reference}
+\label{classgear__shifter}\index{gear\+\_\+shifter@{gear\+\_\+shifter}}
+
+
+{\ttfamily \#include $<$gear\+\_\+shifter.\+h$>$}
+
+
+
+Inheritance diagram for gear\+\_\+shifter\+:
+% FIG 0
+
+
+Collaboration diagram for gear\+\_\+shifter\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classgear__shifter_a0a83c40b155cead447d5fd8d3de67bcc}{gear\+\_\+shifter} (const char $\ast$a\+\_\+name, unsigned char a\+\_\+priority=0, size\+\_\+t a\+\_\+stack\+\_\+size=config\+M\+I\+N\+I\+M\+A\+L\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE, emstream $\ast$p\+\_\+ser\+\_\+dev=N\+U\+LL, \hyperlink{structsemi__truck__data__t}{semi\+\_\+truck\+\_\+data\+\_\+t} $\ast$semi\+\_\+data\+\_\+in=N\+U\+LL)
+\begin{DoxyCompactList}\small\item\em The constructor for a \hyperlink{classgear__shifter}{gear\+\_\+shifter} that handles gear shifting of the semi-\/truck. \end{DoxyCompactList}\item 
+void \hyperlink{classgear__shifter_ab9e3d0fec33d3207d88f795a0ce3ffd8}{run} ()\hypertarget{classgear__shifter_ab9e3d0fec33d3207d88f795a0ce3ffd8}{}\label{classgear__shifter_ab9e3d0fec33d3207d88f795a0ce3ffd8}
+
+\begin{DoxyCompactList}\small\item\em Runs the task code for the steering servo. This method simulates finite state machine with 2 different states\+: on (1) and off (2). In its off state, the servo will not try to actuate to any specific steering angle, it will simply remain where it is when it was turned off. In its on state, the servo will actuate (based on P\+WM level) to hit the setpoint steering angle from the Raspberry Pi\textquotesingle{}s control loop task. \end{DoxyCompactList}\item 
+void {\bfseries shift\+\_\+to\+\_\+first} ()\hypertarget{classgear__shifter_ac8b9182b9f3b0be7e2e0d24c2e41dec9}{}\label{classgear__shifter_ac8b9182b9f3b0be7e2e0d24c2e41dec9}
+
+\item 
+void {\bfseries shift\+\_\+to\+\_\+second} ()\hypertarget{classgear__shifter_a58810c4ba96476ad184377fc26833e8b}{}\label{classgear__shifter_a58810c4ba96476ad184377fc26833e8b}
+
+\item 
+void {\bfseries shift\+\_\+to\+\_\+third} ()\hypertarget{classgear__shifter_a1d450a2bb898853995968bc7335fd166}{}\label{classgear__shifter_a1d450a2bb898853995968bc7335fd166}
+
+\item 
+uint8\+\_\+t \hyperlink{classgear__shifter_a0956653ddfbdc4d93872a5efa9cf5ee6}{get\+\_\+actual\+\_\+level} ()
+\begin{DoxyCompactList}\small\item\em gets the level of the gear shifter to potentially let other tasks know what gear the truck is in. \end{DoxyCompactList}\item 
+void \hyperlink{classgear__shifter_abb8fdfb5b94ea42779a75184c2cb2b37}{set\+\_\+desired\+\_\+level} (uint8\+\_\+t in\+\_\+level)
+\begin{DoxyCompactList}\small\item\em Sets the desired level of the gear shifter based on input from the RC controller. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Created by nate furbeyre on 11/18/18. The gear shifter is responsible for shifting gears for the semi-\/truck. It is implemented as a child class of both a \hyperlink{classServo}{Servo}, and as a Task\+Base, allowing it to inherit properties and methods from each parent class. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{gear\+\_\+shifter@{gear\+\_\+shifter}!gear\+\_\+shifter@{gear\+\_\+shifter}}
+\index{gear\+\_\+shifter@{gear\+\_\+shifter}!gear\+\_\+shifter@{gear\+\_\+shifter}}
+\subsubsection[{\texorpdfstring{gear\+\_\+shifter(const char $\ast$a\+\_\+name, unsigned char a\+\_\+priority=0, size\+\_\+t a\+\_\+stack\+\_\+size=config\+M\+I\+N\+I\+M\+A\+L\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+Z\+E, emstream $\ast$p\+\_\+ser\+\_\+dev=\+N\+U\+L\+L, semi\+\_\+truck\+\_\+data\+\_\+t $\ast$semi\+\_\+data\+\_\+in=\+N\+U\+L\+L)}{gear_shifter(const char *a_name, unsigned char a_priority=0, size_t a_stack_size=configMINIMAL_STACK_SIZE, emstream *p_ser_dev=NULL, semi_truck_data_t *semi_data_in=NULL)}}]{\setlength{\rightskip}{0pt plus 5cm}gear\+\_\+shifter\+::gear\+\_\+shifter (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{a\+\_\+name, }
+\item[{unsigned char}]{a\+\_\+priority = {\ttfamily 0}, }
+\item[{size\+\_\+t}]{a\+\_\+stack\+\_\+size = {\ttfamily configMINIMAL\+\_\+STACK\+\_\+SIZE}, }
+\item[{emstream $\ast$}]{p\+\_\+ser\+\_\+dev = {\ttfamily NULL}, }
+\item[{{\bf semi\+\_\+truck\+\_\+data\+\_\+t} $\ast$}]{semi\+\_\+data\+\_\+in = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)}\hypertarget{classgear__shifter_a0a83c40b155cead447d5fd8d3de67bcc}{}\label{classgear__shifter_a0a83c40b155cead447d5fd8d3de67bcc}
+
+
+The constructor for a \hyperlink{classgear__shifter}{gear\+\_\+shifter} that handles gear shifting of the semi-\/truck. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+name} & the name of the task \\
+\hline
+{\em a\+\_\+priority} & The priority given to this task \\
+\hline
+{\em a\+\_\+stack\+\_\+size} & The amount of bytes given to the task \\
+\hline
+{\em p\+\_\+ser\+\_\+dev} & A serial device that this tasks output is sent to \\
+\hline
+{\em semi\+\_\+data\+\_\+in} & A pointer to the semi truck system data communicated between tasks \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{gear\+\_\+shifter@{gear\+\_\+shifter}!get\+\_\+actual\+\_\+level@{get\+\_\+actual\+\_\+level}}
+\index{get\+\_\+actual\+\_\+level@{get\+\_\+actual\+\_\+level}!gear\+\_\+shifter@{gear\+\_\+shifter}}
+\subsubsection[{\texorpdfstring{get\+\_\+actual\+\_\+level()}{get_actual_level()}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t gear\+\_\+shifter\+::get\+\_\+actual\+\_\+level (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classgear__shifter_a0956653ddfbdc4d93872a5efa9cf5ee6}{}\label{classgear__shifter_a0956653ddfbdc4d93872a5efa9cf5ee6}
+
+
+gets the level of the gear shifter to potentially let other tasks know what gear the truck is in. 
+
+\begin{DoxyReturn}{Returns}
+the gear level that the truck is in (either 1, 2 or 3) 
+\end{DoxyReturn}
+\index{gear\+\_\+shifter@{gear\+\_\+shifter}!set\+\_\+desired\+\_\+level@{set\+\_\+desired\+\_\+level}}
+\index{set\+\_\+desired\+\_\+level@{set\+\_\+desired\+\_\+level}!gear\+\_\+shifter@{gear\+\_\+shifter}}
+\subsubsection[{\texorpdfstring{set\+\_\+desired\+\_\+level(uint8\+\_\+t in\+\_\+level)}{set_desired_level(uint8_t in_level)}}]{\setlength{\rightskip}{0pt plus 5cm}void gear\+\_\+shifter\+::set\+\_\+desired\+\_\+level (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{in\+\_\+level}
+\end{DoxyParamCaption}
+)}\hypertarget{classgear__shifter_abb8fdfb5b94ea42779a75184c2cb2b37}{}\label{classgear__shifter_abb8fdfb5b94ea42779a75184c2cb2b37}
+
+
+Sets the desired level of the gear shifter based on input from the RC controller. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+\_\+level} & The gear level that the servo needs to be actuated to \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+gear\+\_\+shifter.\+h\item 
+gear\+\_\+shifter.\+cpp\end{DoxyCompactItemize}

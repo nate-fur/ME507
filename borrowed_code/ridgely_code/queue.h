@@ -68,7 +68,7 @@
 #define QUEUE_H
 
 #ifndef INC_FREERTOS_H
-	#error "include FreeRTOS.h" must appear in source files before "include queue.h"
+	#error "borrowed_code FreeRTOS.h" must appear in source files before "borrowed_code queue.h"
 #endif
 
 #ifdef __cplusplus

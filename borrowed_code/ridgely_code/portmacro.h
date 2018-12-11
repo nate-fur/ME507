@@ -1,7 +1,7 @@
 //*************************************************************************************
 //
 // This version of portmacro.h is set up for Cal Poly ME405 projects using an AVR
-// microcontroller. Specific course oriented modifications include an extern definition
+// microcontroller. Specific course oriented modifications borrowed_code an extern definition
 // of variable portStackTopForTask, which is used to track where each task's stack is
 // in order to allow looking into memory for educational purposes. 
 //

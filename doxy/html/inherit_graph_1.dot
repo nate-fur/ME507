@@ -1,0 +1,32 @@
+digraph "Graphical Class Hierarchy"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Adafruit_BNO055",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="imu_task",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classimu__task.html"];
+  Node3 [label="rs232",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="mega_comm_task",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classmega__comm__task.html"];
+  Node3 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="pi_comm_task",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classpi__comm__task.html"];
+  Node6 [label="Servo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classServo.html"];
+  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="fifth_wheel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classfifth__wheel.html"];
+  Node6 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="gear_shifter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classgear__shifter.html"];
+  Node6 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="steer_servo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsteer__servo.html"];
+  Node10 [label="TaskBase",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node10 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="motor_driver",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classmotor__driver.html"];
+  Node10 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="wheel_speed",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classwheel__speed.html"];
+}

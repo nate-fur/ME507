@@ -1,0 +1,115 @@
+\hypertarget{classmega__comm__task}{}\section{mega\+\_\+comm\+\_\+task Class Reference}
+\label{classmega__comm__task}\index{mega\+\_\+comm\+\_\+task@{mega\+\_\+comm\+\_\+task}}
+
+
+{\ttfamily \#include $<$mega\+\_\+comm\+\_\+task.\+h$>$}
+
+
+
+Inheritance diagram for mega\+\_\+comm\+\_\+task\+:
+% FIG 0
+
+
+Collaboration diagram for mega\+\_\+comm\+\_\+task\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmega__comm__task_a1a3a2dc1e6d669bebba0970711075667}{mega\+\_\+comm\+\_\+task} (const char $\ast$a\+\_\+name, unsigned port\+B\+A\+S\+E\+\_\+\+T\+Y\+PE a\+\_\+priority=0, size\+\_\+t a\+\_\+stack\+\_\+size=config\+M\+I\+N\+I\+M\+A\+L\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE, emstream $\ast$p\+\_\+ser\+\_\+dev=N\+U\+LL, uint16\+\_\+t baud=9600, uint8\+\_\+t port=0, communication\+\_\+data $\ast$comm\+\_\+data\+\_\+in=N\+U\+LL)
+\begin{DoxyCompactList}\small\item\em The constructor for a \hyperlink{classmega__comm__task}{mega\+\_\+comm\+\_\+task} object communicates with the Rasp-\/\+Pi. \end{DoxyCompactList}\item 
+void \hyperlink{classmega__comm__task_a138a230db5d3c9362b977e4777af6165}{run} ()
+\begin{DoxyCompactList}\small\item\em Runs the code for the A\+T\+Mega64 to transmit and receive data from the Raspberry Pi This method runs on an infinite loop where data is read via an R\+S232 port from the raspberry pi. The data, which contains information regarding different desired values from the user and control loop, is then relayed to each of the different tasks within the A\+T\+Mega, so that each task can act accordingly. In addition, this method sends information back to the Raspberry Pi about the actual state of each of the tasks in the A\+T\+Mega. \end{DoxyCompactList}\item 
+void \hyperlink{classmega__comm__task_abb741c63ba06af3870a26889f4f4f4e6}{read\+\_\+from\+\_\+pi} ()
+\begin{DoxyCompactList}\small\item\em Reads data from the raspberry pi through one of the U\+S\+A\+RT ports of the A\+T\+Mega. Since this class descents the rs232int class, it is able to use its communication based methods for talking with the Raspberry Pi. \end{DoxyCompactList}\item 
+void \hyperlink{classmega__comm__task_abf150bee11df6ad351ebc06328a87155}{write\+\_\+to\+\_\+pi} ()
+\begin{DoxyCompactList}\small\item\em Writes data to the raspberry pi through one of the U\+S\+A\+RT ports of the A\+T\+Mega. Since this class descents the rs232int class, it is able to use its communication based methods for talking with the Raspberry Pi. \end{DoxyCompactList}\item 
+void \hyperlink{classmega__comm__task_a63bc85730a7b93c3240502979cd1c3b9}{write\+\_\+16bit\+\_\+val} (int16\+\_\+t write\+\_\+val)\hypertarget{classmega__comm__task_a63bc85730a7b93c3240502979cd1c3b9}{}\label{classmega__comm__task_a63bc85730a7b93c3240502979cd1c3b9}
+
+\begin{DoxyCompactList}\small\item\em writes a 16 bit value to the rs232 port. This function is implemented using calls to the rs232 class getchar, along with some bitshifting to get a final value \end{DoxyCompactList}\item 
+int16\+\_\+t \hyperlink{classmega__comm__task_a04be72195bd2071fe1eb51b2ac5bbe1f}{read\+\_\+16bit\+\_\+val} ()\hypertarget{classmega__comm__task_a04be72195bd2071fe1eb51b2ac5bbe1f}{}\label{classmega__comm__task_a04be72195bd2071fe1eb51b2ac5bbe1f}
+
+\begin{DoxyCompactList}\small\item\em reads a 16 bit balue from the rs232 port. This function is implemented using calls to the rs232 class getchar, along with some bitshifting to get a final value \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Created by nate furbeyre on 11/18/18. The \hyperlink{classmega__comm__task}{mega\+\_\+comm\+\_\+task} task is responsible for receiving information from the raspberry pi and relaying the necessary information to each of the tasks controlled by the A\+T\+Mega64. In addition, it sends information back to the Raspberry Pi about different states of tasks on the A\+T\+Mega. It uses the rs232 communication protocol and the U\+A\+R\+T/ U\+S\+A\+RT ports on the A\+T\+Mega. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{mega\+\_\+comm\+\_\+task@{mega\+\_\+comm\+\_\+task}!mega\+\_\+comm\+\_\+task@{mega\+\_\+comm\+\_\+task}}
+\index{mega\+\_\+comm\+\_\+task@{mega\+\_\+comm\+\_\+task}!mega\+\_\+comm\+\_\+task@{mega\+\_\+comm\+\_\+task}}
+\subsubsection[{\texorpdfstring{mega\+\_\+comm\+\_\+task(const char $\ast$a\+\_\+name, unsigned port\+B\+A\+S\+E\+\_\+\+T\+Y\+P\+E a\+\_\+priority=0, size\+\_\+t a\+\_\+stack\+\_\+size=config\+M\+I\+N\+I\+M\+A\+L\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+Z\+E, emstream $\ast$p\+\_\+ser\+\_\+dev=\+N\+U\+L\+L, uint16\+\_\+t baud=9600, uint8\+\_\+t port=0, communication\+\_\+data $\ast$comm\+\_\+data\+\_\+in=\+N\+U\+L\+L)}{mega_comm_task(const char *a_name, unsigned portBASE_TYPE a_priority=0, size_t a_stack_size=configMINIMAL_STACK_SIZE, emstream *p_ser_dev=NULL, uint16_t baud=9600, uint8_t port=0, communication_data *comm_data_in=NULL)}}]{\setlength{\rightskip}{0pt plus 5cm}mega\+\_\+comm\+\_\+task\+::mega\+\_\+comm\+\_\+task (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{a\+\_\+name, }
+\item[{unsigned port\+B\+A\+S\+E\+\_\+\+T\+Y\+PE}]{a\+\_\+priority = {\ttfamily 0}, }
+\item[{size\+\_\+t}]{a\+\_\+stack\+\_\+size = {\ttfamily configMINIMAL\+\_\+STACK\+\_\+SIZE}, }
+\item[{emstream $\ast$}]{p\+\_\+ser\+\_\+dev = {\ttfamily NULL}, }
+\item[{uint16\+\_\+t}]{baud = {\ttfamily 9600}, }
+\item[{uint8\+\_\+t}]{port = {\ttfamily 0}, }
+\item[{communication\+\_\+data $\ast$}]{comm\+\_\+data\+\_\+in = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)}\hypertarget{classmega__comm__task_a1a3a2dc1e6d669bebba0970711075667}{}\label{classmega__comm__task_a1a3a2dc1e6d669bebba0970711075667}
+
+
+The constructor for a \hyperlink{classmega__comm__task}{mega\+\_\+comm\+\_\+task} object communicates with the Rasp-\/\+Pi. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+name} & the name of the task \\
+\hline
+{\em a\+\_\+priority} & The priority given to this task \\
+\hline
+{\em a\+\_\+stack\+\_\+size} & The amount of bytes given to the task \\
+\hline
+{\em p\+\_\+ser\+\_\+dev} & A serial device that this tasks output is sent to \\
+\hline
+{\em baud} & The baud rate for the U\+A\+RT port that the mega communicates with \\
+\hline
+{\em port} & The U\+A\+RT port number \\
+\hline
+{\em semi\+\_\+data\+\_\+in} & A pointer to the semi truck system data communicated between tasks \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{mega\+\_\+comm\+\_\+task@{mega\+\_\+comm\+\_\+task}!read\+\_\+from\+\_\+pi@{read\+\_\+from\+\_\+pi}}
+\index{read\+\_\+from\+\_\+pi@{read\+\_\+from\+\_\+pi}!mega\+\_\+comm\+\_\+task@{mega\+\_\+comm\+\_\+task}}
+\subsubsection[{\texorpdfstring{read\+\_\+from\+\_\+pi()}{read_from_pi()}}]{\setlength{\rightskip}{0pt plus 5cm}void mega\+\_\+comm\+\_\+task\+::read\+\_\+from\+\_\+pi (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classmega__comm__task_abb741c63ba06af3870a26889f4f4f4e6}{}\label{classmega__comm__task_abb741c63ba06af3870a26889f4f4f4e6}
+
+
+Reads data from the raspberry pi through one of the U\+S\+A\+RT ports of the A\+T\+Mega. Since this class descents the rs232int class, it is able to use its communication based methods for talking with the Raspberry Pi. 
+
+if the other device writes all data atomically, then we can read all data (also atomically) \index{mega\+\_\+comm\+\_\+task@{mega\+\_\+comm\+\_\+task}!run@{run}}
+\index{run@{run}!mega\+\_\+comm\+\_\+task@{mega\+\_\+comm\+\_\+task}}
+\subsubsection[{\texorpdfstring{run()}{run()}}]{\setlength{\rightskip}{0pt plus 5cm}void mega\+\_\+comm\+\_\+task\+::run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classmega__comm__task_a138a230db5d3c9362b977e4777af6165}{}\label{classmega__comm__task_a138a230db5d3c9362b977e4777af6165}
+
+
+Runs the code for the A\+T\+Mega64 to transmit and receive data from the Raspberry Pi This method runs on an infinite loop where data is read via an R\+S232 port from the raspberry pi. The data, which contains information regarding different desired values from the user and control loop, is then relayed to each of the different tasks within the A\+T\+Mega, so that each task can act accordingly. In addition, this method sends information back to the Raspberry Pi about the actual state of each of the tasks in the A\+T\+Mega. 
+
+receive data from pi and relay to tasks
+
+send data about tasks to the pi \index{mega\+\_\+comm\+\_\+task@{mega\+\_\+comm\+\_\+task}!write\+\_\+to\+\_\+pi@{write\+\_\+to\+\_\+pi}}
+\index{write\+\_\+to\+\_\+pi@{write\+\_\+to\+\_\+pi}!mega\+\_\+comm\+\_\+task@{mega\+\_\+comm\+\_\+task}}
+\subsubsection[{\texorpdfstring{write\+\_\+to\+\_\+pi()}{write_to_pi()}}]{\setlength{\rightskip}{0pt plus 5cm}void mega\+\_\+comm\+\_\+task\+::write\+\_\+to\+\_\+pi (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classmega__comm__task_abf150bee11df6ad351ebc06328a87155}{}\label{classmega__comm__task_abf150bee11df6ad351ebc06328a87155}
+
+
+Writes data to the raspberry pi through one of the U\+S\+A\+RT ports of the A\+T\+Mega. Since this class descents the rs232int class, it is able to use its communication based methods for talking with the Raspberry Pi. 
+
+an ugly way to do this is through bitshifting... 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+mega\+\_\+comm\+\_\+task.\+h\item 
+mega\+\_\+comm\+\_\+task.\+cpp\end{DoxyCompactItemize}

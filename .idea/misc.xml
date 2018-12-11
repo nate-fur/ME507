@@ -3,7 +3,8 @@
   <component name="CMakeWorkspace" PROJECT_DIR="$PROJECT_DIR$" />
   <component name="CidrRootsConfiguration">
     <sourceRoots>
-      <file path="$PROJECT_DIR$/include/Adafruit_BNO055" />
+      <file path="$PROJECT_DIR$/borrowed_code/Adafruit_BNO055" />
+      <file path="$PROJECT_DIR$/borrowed_code/hokuyoaist-master" />
       <file path="$PROJECT_DIR$/src" />
     </sourceRoots>
   </component>
